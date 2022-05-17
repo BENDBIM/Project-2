@@ -1,0 +1,37 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'blog\main.css' %}">
+    <div class="box-element product"><p><strong>Kamat /</strong> Store</p></div>
+     <div class="row">
+            {% for product in products %}
+            <div class="col-lg-4">              
+                <br>
+                <center><img class="thumbnail" src="{{product.imageURL}}"></center><hr>
+                <div class="box-element product">
+                    <h6><strong>{{product.name}}</strong></h6>
+                    <hr>
+                    <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                    <a class="btn btn-outline-success" href="{% url 'blog-contact' %}">Get Quote</a>
+                    <h4 style="display: inline-block; float:right" >Rs.{{product.price|floatformat:2}}</h4>
+                    <br>
+                </div><br><hr>
+                <br>
+            </div>
+
+            
+
+            {% endfor %}
+
+        </div>
+        <hr style="height:8px;border-width:0;color:gray;background-color:black"/>
+      
+      </h3>
+      © 2021 KAMAT Corporation. All Rights Reserved.<br/><br/>
+            
+{% endblock content %}
+
+
+
+
